@@ -77,5 +77,7 @@ public class Conditions {
             System.out.println("Rok je prestupny");
         }
 
+
+        System.out.println("Ahoj");
     }
 }
