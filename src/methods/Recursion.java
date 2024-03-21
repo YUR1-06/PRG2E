@@ -4,43 +4,51 @@ import java.io.File;
 
 public class Recursion {
 
-    static void something(){
-        System.out.println("doing something...");
-        something();
-    }
 
     static void countdown(int n){
-        if (n < 1){
-            return;
-        }
         System.out.println(n);
-        countdown(n-1);
+
+        if(n > 1){
+            n--;
+            countdown(n);
+        }
     }
 
     static int factorial(int n){
-        if (n == 1){
+        if (n <= 1){
             return 1;
         }
-
-        return n * factorial(n-1);
+        return n * factorial(n - 1);
     }
 
-    static void tree(String file){
-        File[] files = new File(file).listFiles();
-        for(File f : files){
-            if (f.isFile()){
-                System.out.println("Soubor: " + f.getName());
-            } else {
-                System.out.println("Slozka: " + f.getName());
-                tree(f.getPath());
-            }
+    static int nonRecursive(int n){
+        int result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
         }
+        return result;
     }
 
+    static void infinity(){
+        System.out.println("Doing something..");
+        infinity();
+    }
+
+    static void saharaCounter(int n){
+        System.out.println("Sahara speck #" + n);
+        if (n == 36546484){
+            System.out.println("Counted!");
+            return;
+        }
+        saharaCounter(n+1);
+    }
 
     public static void main(String[] args) {
-        countdown(1500000);
-//        tree("src");
-//        something();
+        countdown(5);
+        System.out.println(factorial(5));
+        System.out.println(factorial(10));
+        System.out.println(factorial(100));
+//        infinity();
+        saharaCounter(1);
     }
 }
