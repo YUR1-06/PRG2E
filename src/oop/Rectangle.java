@@ -1,14 +1,13 @@
 package oop;
 
 public class Rectangle {
-    int width;
-    int height;
+    int height, width;
 
-    public int getArea(){
-        return width * height;
+    double getArea(){
+        return height * width;
     }
 
-    public boolean isSquare(){
+    boolean isSquare(){
 //        if (width == height){
 //            return true;
 //        } else {
